@@ -1,0 +1,69 @@
+{% extends "base.html" %} {% block title %}Ajouter un individu{% endblock %} {% block
+content %}
+<style>
+	#table {
+		font-family: Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+		width: max-content;
+	}
+	
+	#table td, #table th {
+		border: 0px solid #ddd;
+		padding: 8px;
+	}
+	
+	#table tr:nth-child(even){background-color: #f2f2f2;}
+	
+	#table tr:hover {background-color: #ddd;}
+	
+	#table th {
+		text-align: center;
+		background-color: #0062CC;
+		color: white;
+	}
+</style>
+<form method="POST">
+   <h1 align="center">Laboratoire {{ user.labo_name }}</h1><hr>
+   <h4 align="center" color=blue>Liste du groupe '{{ groupe.name }}'<br><br>
+      {% if groupe.persons|length > 6 %}
+      <button type="button" class="btn btn-primary" onClick="makeTests({{ groupe.id }})">Tester</button>&emsp;
+      {% endif %}
+      <button type="button" class="btn btn-primary" onClick="addPerson({{ groupe.id }})">Ajouter</button>
+   </h4>
+   <hr>
+   <table align="left" id="table">
+      <thead>
+         <tr>
+            <th>Code </th>
+            <th>CIN </th>
+            <th>Nom </th>
+            <th>Prénom </th>
+            <th>Sexe </th>
+            <th>Téléphone </th>
+            <th>E-mail </th>
+            <th>Adresse </th>
+         </tr>
+      </thead>
+
+      <tbody>
+         {% for person in groupe.persons %}
+            <tr>
+               <td>{{ person.id }} </td>
+               <td>{{ person.cin }} </td>
+               <td>{{ person.fam_name }} </td>
+               <td>{{ person.name }} </td>
+               <td>{{ person.sexe }} </td>
+               <td>{{ person.phone }} </td>
+               <td>{{ person.email }} </td>
+               <td>{{ person.address }} </td>
+               <td>
+                  <button type="button" class="close" onClick="deletePerson({{ person.id }}, {{person.groupe_id}})">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </td>
+            </tr>
+         {% endfor %}
+      </tbody>
+   </table>
+</form>
+{% endblock %}

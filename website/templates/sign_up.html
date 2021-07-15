@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block title %}Créer un compte{% endblock %} {% block
+content %}
+<form method="POST">
+  <h3 align="center" color=blue>Créer un compte</h3>
+  <div class="form-group">
+    <label for="immat">Immatriculation du laboratoire</label>
+    <input
+      type="immat"
+      class="form-control"
+      id="immat"
+      name="immat"
+      placeholder="Entrer le numéro d'immatriculation du laboratoire"
+    />
+  </div>
+  <div class="form-group">
+    <label for="LaboName">Nom du laboratoire</label>
+    <input
+      type="text"
+      class="form-control"
+      id="LaboName"
+      name="LaboName"
+      placeholder="Entrer le nom du laboratoire"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password1">Mot de passe</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password1"
+      name="password1"
+      placeholder="Entrer un mot de passe"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password2">Confirmer le mot de passe</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password2"
+      name="password2"
+      placeholder="Veuillez confirmer le mot de passe"
+    />
+  </div>
+  <br />
+  <button type="submit" class="btn btn-primary">Créer</button>
+</form>
+{% endblock %}

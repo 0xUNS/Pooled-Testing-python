@@ -1,0 +1,80 @@
+{% extends "base.html" %} {% block title %}Ajouter un individu{% endblock %} {% block
+	content %}
+<style>
+	#table {
+		font-family: Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
+	
+	#table td, #table th {
+		border: 1px solid #ddd;
+		padding: 8px;
+	}
+	
+	#table tr:nth-child(even){background-color: #f2f2f2;}
+	
+	#table tr:hover {background-color: #ddd;}
+	
+	#table th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		text-align: left;
+		background-color: #0062CC;
+		color: white;
+	}
+</style>
+<form method="POST">
+   	<h1 align="center">Laboratoire {{ user.labo_name }}</h1><hr>
+   	<h4 align="center" color=blue>Liste du groupe '{{ groupe.name }}'</h4><br>
+	{% if positive|length %}
+	   <h3 align="center" color=red>
+		Les pesonnes vraisemblablement positif au Covid-19 sont
+		<br>|
+		{% for x in positive %}
+			{% if x > 0%}
+			&emsp;{{ x }}&emsp;|
+			{% endif %} 
+		{% endfor %}
+		<br><br>
+	{% endif %}
+	</h3>
+
+
+   	<table align="center" id="table">
+	<thead>
+	   <tr>
+		   <th>Code	</th>
+		   <th>Id des individus du groupe </th>
+		   <th>Résultats de test</th>
+	   </tr>
+	</thead>
+	<tbody>
+		{% for i in range(listIndv|length) %}
+			<tr>
+				<td>{{ groupe.id }}.{{ i+1 }} </td>
+				<td >
+					{% for x in listIndv[i] %}
+						{% if x > 0 %} 
+							&emsp;{{ x }}&emsp;|
+						{% endif %} 
+					{% endfor %}
+				</td>
+				<td>
+					<input type="radio" class="_8esa" name="resultat[{{i}}]" value="1" id="Positif"> Positif
+					
+					<input type="radio" class="_8esa" name="resultat[{{i}}]" value="0" id="Negatif"> Négatif
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+   </table>
+   <br>
+   <center>
+	<button type="submit" class="btn btn-primary">Valider</button>
+  </center>
+
+
+</form>
+
+{% endblock %}

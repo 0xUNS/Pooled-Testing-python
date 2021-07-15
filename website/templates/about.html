@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+
+    <title>{% block title %}À propos{% endblock %}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar">
+        <div class="navbar-nav">
+          <form><input type="button" class="btn btn-primary" value="  ◀  Revenir  " onclick="history.back()"></form>
+        </div>
+      </div>
+    </nav>
+
+    <center>
+      <img src="{{url_for('static', filename='FSTM_logo.png')}}" alt="logo FSTM" width="300" height="100">
+    </center>
+    <h1 align="center" style="font-family:CMU Serif;font-size:200%;">Faculté des Sciences et Techniques <br>Mohammedia</h1>
+    <hr>
+    <h2 align="center" style="font-family:CMU Serif;font-size:150%;">Département des Mathématiques</h2>
+    <h2 align="center" style="font-family:CMU Serif;font-size:150%;">Licence Sciences et Techniques : Mathématiques Appliquées</h2><br><br><br><br><br><br>
+    <p>
+      <br>&emsp;Ce site web est un projet de fin d'études, qui porte à résoudre la problématique de minimiser les tests (COVID-19); dans un groupe de N personne nous n'avons plus à effectuer N teste, mais plustot beaucoup moins avec cette nouvelle ancienne méthode des hypercubes, proposer aux années 40 mais plus utiliser jusqu'à l'apparition du nouveau (COViD-19) ou nous avons besoin d'effectuer le maximum des tests possible pour vaincre la pondemie.
+      <br>&emsp;La méthode classique consiste à diviser les gens en groupes, on fait un test pour chaque groupe d’échantillons, puis on teste individuellement toutes les personnes d’un groupe dont le résultat est positif. Le processus est rapide, car il n’y a que 2 rondes de tests, mais il peut exiger un grand nombre de tests, selon la prévalence de l’infection.
+      <br>&emsp;Pour la nouvelle méthode, supposons que l’on teste un groupe de 9 personnes placées selon une grille de 3 lignes sur 3 colonnes. On réalise des tests groupés par ligne, puis par colonne. 
+      <br>Supposons que l’on obtienne un résultat positif uniquement pour la 1re ligne et la 3e colonne. Cela signifie que la personne qui est sur la 1re ligne et la 3e colonne soit infectée. En procédant de cette manière, on obtient les « coordonnées » (ligne et colonne) de toute personne positive parmi un groupe de 9 avec seulement 6 tests en tout.
+    </p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Réaliser par :&emsp;&emsp;</th>
+          <th>&emsp;&emsp;Younes AMZIL</th>
+          <th>&emsp;&emsp;Rim ACHERRAB</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td><a href="mailto:younes.amzil@etu.fstm.ac.ma">younes.amzil@etu.fstm.ac.ma</a>&emsp;&emsp;</td>
+          <td><a href="mailto:rim.acchrab@etu.fstm.ac.ma">rim.acchrab@etu.fstm.ac.ma</a></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p align="center" style="font-family:CMU Serif">2021</p>
+
+  </body>
+</html>

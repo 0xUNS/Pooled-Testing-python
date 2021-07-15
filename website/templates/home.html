@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block title %}Principale{% endblock %} {% block content
+%}
+
+<head>
+  <style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td {
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(even) {background-color: #f2f2f2;}
+  </style>
+  </head>
+
+<h1 align="center">Laboratoire {{ user.labo_name }} </h1>
+<br>
+<table align="center" id="table">
+  <tbody>
+    {% for groupe in user.groupes %}
+
+    <tr id="groupes">
+  
+      <td><button type="button" class="btn btn-primary" onClick="viewGroup({{ groupe.id }})">Voir</button></td>
+      <td width=250> {{ groupe.name }} </td>
+      <td> {{ groupe.note }} </td>
+      <td><button type="button" class="close" onClick="deleteGroup({{ groupe.id }})">
+        <span aria-hidden="true">&times;</span>
+      </button></td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+<br><br>
+<form method="POST">
+  <label for="groupe">Nom du groupe</label>
+  <input
+    type="text"
+    class="form-control"
+    id="Group_Name"
+    name="Group_Name"
+    placeholder="Voulez vous donner un nom à ce groupe ?"
+    />
+    <label for="groupe">Note</label>
+    <textarea
+      type="text"
+      class="form-control"
+      id="Note"
+      name="Note"
+      placeholder="Ajouter une note"
+    ></textarea>
+    <br>
+    <center>
+      <button type="submit" class="btn btn-primary">Ajouter un groupe</button>
+    </center>
+</form>
+{% endblock %}

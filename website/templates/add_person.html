@@ -1,0 +1,87 @@
+{% extends "base.html" %} {% block title %}Ajouter un individu{% endblock %} {% block
+content %}
+<form method="POST">
+   <h1 align="center">Laboratoire {{ user.labo_name }}</h1><hr>
+   <h3 align="center" color=blue>Ajouter un individu au groupe {{ groupe.name }}</h3>
+  <div class="form-group">
+    <label for="CIN">CIN</label>
+    <input
+      type="CIN"
+      class="form-control"
+      id="CIN"
+      name="CIN"
+      placeholder="Entrer le numéro de Carte d'Identité Nationale"
+    />
+  </div>
+  <div class="form-group">
+    <label for="Fam_Name">Nom</label>
+    <input
+      type="text"
+      class="form-control"
+      id="Fam_Name"
+      name="Fam_Name"
+      placeholder="Entrer le nom de famille"
+    />
+  </div>
+    <div class="form-group">
+    <label for="Name">Prénom</label>
+    <input
+      type="text"
+      class="form-control"
+      id="Name"
+      name="Name"
+      placeholder="Entrer le prénom"
+    />
+  </div>
+  <div class="form-group">
+    <label for="Sexe">Sexe   :</label><br>
+    <span class="_5k_3" data-type="radio" data-name="gender_wrapper" id="u_5_o_X3">
+      <span class="_5k_2 _5dba">
+        <label class="_58mt" for="u_5_4_fd">Femme</label>
+        <input type="radio" class="_8esa" name="Gender" value="Femme" id="Woman">
+      </span>&emsp;
+      <span class="_5k_2 _5dba">
+        <label class="_58mt" for="u_5_4_fd">Homme</label>
+        <input type="radio" class="_8esa" name="Gender" value="Homme" id="Man">
+      </span>&emsp;
+      <span class="_5k_2 _5dba">
+        <label class="_58mt" for="u_5_4_fd">Autre</label>
+        <input type="radio" class="_8esa" name="Gender" value="Autre" id="Other">
+      </span>
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="Phone">Téléphone</label>
+    <input
+      type="text"
+      class="form-control"
+      id="Phone"
+      name="Phone"
+      placeholder="Entrer le numéro de téléphone"
+    />
+  </div>
+  <div class="form-group">
+    <label for="Email">E-mail</label>
+    <input
+      type="text"
+      class="form-control"
+      id="Email"
+      name="Email"
+      placeholder="Entrer l'adresse email"
+    />
+  </div>
+  <div class="form-group">
+    <label for="Address">Adresse</label>
+    <textarea
+      type="Address"
+      class="form-control"
+      id="Address"
+      name="Address"
+      placeholder="Entrer l'adresse domiciliaire"
+    ></textarea>
+  </div>
+  <br />
+  <button type="submit" class="btn btn-primary">Créer</button>
+  <br></br>
+</form>
+{% endblock %}
